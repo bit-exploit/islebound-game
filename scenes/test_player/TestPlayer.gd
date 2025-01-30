@@ -7,8 +7,10 @@ class_name TestPlayer extends CharacterBody2D
 @export var gravity: float = 980.0
 @export var max_fall_speed: float = 500.0
 @export var jump_cut_multiplier: float = 0.5
-@export var coyote_time_duration: float = 0.15
+@export var coyote_time_duration: float = 0.1
 
+@onready var animation_player: AnimationPlayer = $animation_player
+@onready var sprite: Sprite2D = $sprite
 var coyote_time: float = 0.0
 
 func apply_gravity(delta: float) -> void:
@@ -20,6 +22,7 @@ func handle_movement(delta: float) -> void:
 
 	if direction != 0:
 		velocity.x = move_toward(velocity.x, direction * speed, acceleration * delta)
+		_change_sprite_direction(direction)
 	else:
 		velocity.x = move_toward(velocity.x, 0, friction * delta)
 
@@ -33,3 +36,9 @@ func update_coyote_time(delta: float) -> void:
 	coyote_time = max(coyote_time - delta, 0.0)
 func reset_coyote_time() -> void:
 	coyote_time = coyote_time_duration
+	
+func _change_sprite_direction(x: float) -> void:
+	if x < 0 and sprite.scale.x >= 0:
+		sprite.scale.x = -1 
+	elif x > 0 and sprite.scale.x <= 0:
+		sprite.scale.x = 1 
