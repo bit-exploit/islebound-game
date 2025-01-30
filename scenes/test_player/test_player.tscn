@@ -1,0 +1,38 @@
+[gd_scene load_steps=9 format=3 uid="uid://bpp4lkew42ktc"]
+
+[ext_resource type="Texture2D" uid="uid://d0h8bqhewodb2" path="res://assets/sprites/characters/captain.png" id="1_ehlcn"]
+[ext_resource type="Script" path="res://scenes/test_player/TestPlayer.gd" id="1_rdkam"]
+[ext_resource type="Script" path="res://scripts/utils/StateMachine.gd" id="2_5crwv"]
+[ext_resource type="Script" path="res://scripts/state_machines/test_player_states/TestPlayerStateIdle.gd" id="3_y6brr"]
+[ext_resource type="Script" path="res://scripts/state_machines/test_player_states/TestPlayerStateRunning.gd" id="4_f8v35"]
+[ext_resource type="Script" path="res://scripts/state_machines/test_player_states/TestPlayerStateJumping.gd" id="6_mx7yt"]
+[ext_resource type="Script" path="res://scripts/state_machines/test_player_states/TestPlayerStateFalling.gd" id="7_q0tld"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ugq51"]
+radius = 7.0
+height = 24.0
+
+[node name="test_player" type="CharacterBody2D"]
+script = ExtResource("1_rdkam")
+
+[node name="collision_shape" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ugq51")
+
+[node name="sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_ehlcn")
+
+[node name="state_smachine" type="Node" parent="." node_paths=PackedStringArray("default_state")]
+script = ExtResource("2_5crwv")
+default_state = NodePath("test_player_state_idle")
+
+[node name="test_player_state_idle" type="Node" parent="state_smachine"]
+script = ExtResource("3_y6brr")
+
+[node name="test_player_state_running" type="Node" parent="state_smachine"]
+script = ExtResource("4_f8v35")
+
+[node name="test_player_state_jumping" type="Node" parent="state_smachine"]
+script = ExtResource("6_mx7yt")
+
+[node name="test_player_state_falling" type="Node" parent="state_smachine"]
+script = ExtResource("7_q0tld")
