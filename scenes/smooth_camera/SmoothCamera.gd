@@ -1,13 +1,22 @@
 class_name SmoothCamera extends Camera2D
 
+@export_category("Script Settings")
+@export_group("Camera Options")
 @export var target: NodePath
 @export var smooth_speed: float = 0.1
 @export var zoom_level: Vector2 = Vector2(1, 1)
-@export var velocity_influence: float = 0.2
-@export var min_velocity_threshold: float = 5.0
+@export var velocity_influence: float = 0.15
+@export var min_velocity_threshold: float = 10.0
+
+@export_group("Camera Limits")
+@export var set_limit_top: float = 0
+@export var set_limit_right: float = 0
+@export var set_limit_bottom: float = 0
+@export var set_limit_left: float = 0
 
 var target_node: Node2D = null
 var velocity_smooth: Vector2 = Vector2.ZERO
+
 
 func _ready() -> void:
 	if target:
@@ -17,10 +26,14 @@ func _ready() -> void:
 		
 	zoom = zoom_level
 	
-	limit_top = -256
-	limit_right = 512
-	limit_bottom = 256
-	limit_left = -512
+	if set_limit_top != 0:
+		limit_top = set_limit_top
+	if set_limit_right != 0:
+		limit_right = set_limit_right
+	if set_limit_bottom != 0:
+		limit_bottom = set_limit_bottom
+	if set_limit_left != 0:
+		limit_left = -512
 
 
 func _process(delta: float) -> void:

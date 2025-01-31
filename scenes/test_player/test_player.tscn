@@ -228,6 +228,7 @@ _data = {
 script = ExtResource("1_rdkam")
 
 [node name="sprite" type="Sprite2D" parent="."]
+texture_filter = 1
 texture = ExtResource("1_ehlcn")
 hframes = 5
 
