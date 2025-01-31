@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cts74uof80exx"]
+
+[ext_resource type="Script" path="res://scenes/smooth_camera/SmoothCamera.gd" id="1_52y1b"]
+
+[node name="SmoothCamera" type="Camera2D"]
+script = ExtResource("1_52y1b")

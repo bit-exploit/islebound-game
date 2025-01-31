@@ -16,6 +16,9 @@ func on_physics_process(delta: float) -> void:
 func on_process(_delta: float) -> void:
 	if controlled_node.velocity.y > 0:
 		state_machine.change_to("test_player_state_falling")
+	elif controlled_node.is_on_floor():
+		if controlled_node.velocity.x == 0: state_machine.change_to("test_player_state_idle")
+		else: state_machine.change_to("test_player_state_running")
 
 func on_input(_event: InputEvent) -> void:
 	if Input.is_action_just_released("ui_accept"):
