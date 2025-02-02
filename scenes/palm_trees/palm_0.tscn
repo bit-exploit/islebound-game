@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfs65235mbxy3"]
+
+[ext_resource type="Texture2D" uid="uid://biw2r72y5gx78" path="res://assets/sprites/objects/palm_trees/front_palm_bottom_and_grass.png" id="1_bvkwc"]
+[ext_resource type="PackedScene" uid="uid://7qp3cexabp6p" path="res://scenes/palm_trees/leaves.tscn" id="2_rs4rk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ew2ph"]
+size = Vector2(28, 2.5)
+
+[node name="palm_0" type="Node2D"]
+
+[node name="sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_bvkwc")
+region_enabled = true
+region_rect = Rect2(7.44547, 0.00427675, 15.7879, 60.8989)
+
+[node name="leaves" parent="." instance=ExtResource("2_rs4rk")]
+position = Vector2(0, -46)
+
+[node name="static_body" type="StaticBody2D" parent="."]
+
+[node name="collision_shape" type="CollisionShape2D" parent="static_body"]
+position = Vector2(0, -60.25)
+shape = SubResource("RectangleShape2D_ew2ph")
+one_way_collision = true

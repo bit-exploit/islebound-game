@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://7qp3cexabp6p"]
+
+[ext_resource type="Texture2D" uid="uid://b2jmynb4xpv1q" path="res://assets/sprites/objects/palm_trees/front_palm_tree_top_01.png" id="1_p5xjk"]
+[ext_resource type="Texture2D" uid="uid://gg5wu24o3fxp" path="res://assets/sprites/objects/palm_trees/front_palm_tree_top_02.png" id="2_eyeq1"]
+[ext_resource type="Texture2D" uid="uid://pdkofmqkqi7v" path="res://assets/sprites/objects/palm_trees/front_palm_tree_top_03.png" id="3_c0ity"]
+[ext_resource type="Texture2D" uid="uid://sx4unybpgceu" path="res://assets/sprites/objects/palm_trees/front_palm_tree_top_04.png" id="4_1bfif"]
+
+[sub_resource type="Animation" id="Animation_6dnqr"]
+resource_name = "leaves_shake"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_p5xjk"), ExtResource("2_eyeq1"), ExtResource("3_c0ity"), ExtResource("4_1bfif")]
+}
+
+[sub_resource type="Animation" id="Animation_2y7t0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_p5xjk")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sy21u"]
+_data = {
+"RESET": SubResource("Animation_2y7t0"),
+"leaves_shake": SubResource("Animation_6dnqr")
+}
+
+[node name="leaves" type="Node2D"]
+
+[node name="animation_player" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_sy21u")
+}
+autoplay = "leaves_shake"
+
+[node name="sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_p5xjk")
