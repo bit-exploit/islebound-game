@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0h8bqhewodb2"
-path="res://.godot/imported/captain_idle.png-02ed6abebf9e99e21f99b49e4a53ae08.ctex"
+uid="uid://c04y2y1nahas6"
+path="res://.godot/imported/Jump 01.png-6e2d8288143c660a8978f639c3a12823.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/characters/captain_idle.png"
-dest_files=["res://.godot/imported/captain_idle.png-02ed6abebf9e99e21f99b49e4a53ae08.ctex"]
+source_file="res://assets/sprites/characters/captain/03-Jump/Jump 01.png"
+dest_files=["res://.godot/imported/Jump 01.png-6e2d8288143c660a8978f639c3a12823.ctex"]
 
 [params]
 

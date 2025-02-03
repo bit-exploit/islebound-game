@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://riit0gcq2ja0"
-path="res://.godot/imported/captain_falling.png-d9eade8b0b739c97199617452d01aca4.ctex"
+uid="uid://c2jh171hw1igc"
+path="res://.godot/imported/Run 04.png-f4624a303a4c46695a646534286b24fa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/characters/captain_falling.png"
-dest_files=["res://.godot/imported/captain_falling.png-d9eade8b0b739c97199617452d01aca4.ctex"]
+source_file="res://assets/sprites/characters/captain/02-Run/Run 04.png"
+dest_files=["res://.godot/imported/Run 04.png-f4624a303a4c46695a646534286b24fa.ctex"]
 
 [params]
 

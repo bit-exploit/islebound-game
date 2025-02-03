@@ -11,8 +11,14 @@ class_name TestPlayer extends CharacterBody2D
 
 @onready var animation_player: AnimationPlayer = $animation_player
 @onready var sprite: Sprite2D = $sprite
-var coyote_time: float = 0.0
+var coyote_time: float = 0.
 
+# private
+func _change_sprite_direction(x: float) -> void:
+	if (x < 0 and sprite.scale.x >= 0) or (x > 0 and sprite.scale.x <= 0):
+		sprite.scale.x = sprite.scale.x * -1
+
+# public
 func apply_gravity(delta: float) -> void:
 	velocity.y += gravity * delta
 	velocity.y = min(velocity.y, max_fall_speed)
@@ -31,12 +37,8 @@ func handle_jump(cut: bool = false) -> void:
 		velocity.y = jump_force
 	else:
 		velocity.y *= jump_cut_multiplier
-		
+
 func update_coyote_time(delta: float) -> void:
 	coyote_time = max(coyote_time - delta, 0.0)
 func reset_coyote_time() -> void:
 	coyote_time = coyote_time_duration
-	
-func _change_sprite_direction(x: float) -> void:
-	if (x < 0 and sprite.scale.x >= 0) or (x > 0 and sprite.scale.x <= 0):
-		sprite.scale.x = sprite.scale.x * -1

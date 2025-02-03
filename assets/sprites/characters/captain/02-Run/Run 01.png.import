@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://byuf3qwk5uyfd"
-path="res://.godot/imported/captain_jumping.png-614365f639a58fb06fb1585c1b37e39a.ctex"
+uid="uid://di6ik71ujevtq"
+path="res://.godot/imported/Run 01.png-b92823bfe785275559d59948e7e61c45.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/characters/captain_jumping.png"
-dest_files=["res://.godot/imported/captain_jumping.png-614365f639a58fb06fb1585c1b37e39a.ctex"]
+source_file="res://assets/sprites/characters/captain/02-Run/Run 01.png"
+dest_files=["res://.godot/imported/Run 01.png-b92823bfe785275559d59948e7e61c45.ctex"]
 
 [params]
 

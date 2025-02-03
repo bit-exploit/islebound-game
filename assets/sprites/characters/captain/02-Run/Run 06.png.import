@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b61c4qx6eby4i"
-path="res://.godot/imported/captain_running.png-b514b77f119281251152ae4326d3804c.ctex"
+uid="uid://qdw7yag6712q"
+path="res://.godot/imported/Run 06.png-d3cb18426cb502407afd0895f4ca71f2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/characters/captain_running.png"
-dest_files=["res://.godot/imported/captain_running.png-b514b77f119281251152ae4326d3804c.ctex"]
+source_file="res://assets/sprites/characters/captain/02-Run/Run 06.png"
+dest_files=["res://.godot/imported/Run 06.png-d3cb18426cb502407afd0895f4ca71f2.ctex"]
 
 [params]
 
