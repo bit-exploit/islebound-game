@@ -20,6 +20,7 @@
 
 - **Movimiento**: `←` / `→`
 - **Saltar**: `Espacio`
+- **Atacar**: `F`
 
 ---
 

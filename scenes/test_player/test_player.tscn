@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bpp4lkew42ktc"]
+[gd_scene load_steps=48 format=3 uid="uid://bpp4lkew42ktc"]
 
 [ext_resource type="Script" path="res://scenes/test_player/TestPlayer.gd" id="1_rdkam"]
 [ext_resource type="Script" path="res://scripts/utils/StateMachine.gd" id="2_5crwv"]
@@ -21,6 +21,23 @@
 [ext_resource type="Texture2D" uid="uid://c2jh171hw1igc" path="res://assets/sprites/characters/captain/02-Run/Run 04.png" id="14_18kfj"]
 [ext_resource type="Texture2D" uid="uid://coyrbjg3x42jp" path="res://assets/sprites/characters/captain/02-Run/Run 05.png" id="15_4pqhk"]
 [ext_resource type="Texture2D" uid="uid://qdw7yag6712q" path="res://assets/sprites/characters/captain/02-Run/Run 06.png" id="16_hx7gr"]
+[ext_resource type="Texture2D" uid="uid://b4x2o5flymbgq" path="res://assets/sprites/characters/captain/05-Attack 1/Attack 1 01.png" id="17_lx5i4"]
+[ext_resource type="Texture2D" uid="uid://b1nox4jo36woo" path="res://assets/sprites/characters/captain/05-Attack 1/Attack 1 02.png" id="18_kr27u"]
+[ext_resource type="Texture2D" uid="uid://dqy8lgpgvr5gx" path="res://assets/sprites/characters/captain/05-Attack 1/Attack 1 03.png" id="19_sshyg"]
+[ext_resource type="Texture2D" uid="uid://bibbqcfn6mo47" path="res://assets/sprites/characters/captain/06-Attack 2/Attack 2 01.png" id="20_48e3u"]
+[ext_resource type="Texture2D" uid="uid://bpeiynue6qrdq" path="res://assets/sprites/characters/captain/06-Attack 2/Attack 2 02.png" id="21_rmke7"]
+[ext_resource type="Texture2D" uid="uid://b4w0kn27sdfjg" path="res://assets/sprites/characters/captain/06-Attack 2/Attack 2 03.png" id="22_qgqky"]
+[ext_resource type="Texture2D" uid="uid://bpdur6dwu1ugj" path="res://assets/sprites/characters/captain/07-Attack 3/Attack 3 01.png" id="23_isg7o"]
+[ext_resource type="Texture2D" uid="uid://bbuhy6f1sbuqr" path="res://assets/sprites/characters/captain/07-Attack 3/Attack 3 02.png" id="24_7rihx"]
+[ext_resource type="Script" path="res://scripts/state_machines/test_player_states/TestPlayerStateAttack.gd" id="25_5jxco"]
+[ext_resource type="Texture2D" uid="uid://rg4u6ce0lnh4" path="res://assets/sprites/characters/captain/07-Attack 3/Attack 3 03.png" id="25_7388j"]
+[ext_resource type="Texture2D" uid="uid://c6urioohe5hlk" path="res://assets/sprites/characters/captain/08-Air Attack 1/Air Attack 1 01.png" id="26_6ggdl"]
+[ext_resource type="Texture2D" uid="uid://brsxakl5de3p6" path="res://assets/sprites/characters/captain/08-Air Attack 1/Air Attack 1 02.png" id="27_snhmn"]
+[ext_resource type="Texture2D" uid="uid://c41jp1m3imhey" path="res://assets/sprites/characters/captain/08-Air Attack 1/Air Attack 1 03.png" id="28_8cix0"]
+[ext_resource type="Texture2D" uid="uid://bl74ipvodhap4" path="res://assets/sprites/characters/captain/09-Air Attack 2/Air Attack 2 01.png" id="29_nholp"]
+[ext_resource type="Texture2D" uid="uid://dfhght5i8uknh" path="res://assets/sprites/characters/captain/09-Air Attack 2/Air Attack 2 02.png" id="30_taook"]
+[ext_resource type="Texture2D" uid="uid://1e3a1l314bmr" path="res://assets/sprites/characters/captain/09-Air Attack 2/Air Attack 2 03.png" id="31_156s4"]
+[ext_resource type="Script" path="res://scripts/state_machines/test_player_states/TestPlayerStateAirAttack.gd" id="32_wshl4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ugq51"]
 radius = 9.0
@@ -39,6 +56,40 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [ExtResource("2_5llfj")]
+}
+
+[sub_resource type="Animation" id="Animation_8focr"]
+resource_name = "captain_airattack"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667, 0.333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("26_6ggdl"), ExtResource("27_snhmn"), ExtResource("28_8cix0"), ExtResource("29_nholp"), ExtResource("30_taook"), ExtResource("31_156s4")]
+}
+
+[sub_resource type="Animation" id="Animation_jgf0a"]
+resource_name = "captain_attack"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667, 0.333333, 0.4, 0.466667, 0.533333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("17_lx5i4"), ExtResource("18_kr27u"), ExtResource("19_sshyg"), ExtResource("20_48e3u"), ExtResource("21_rmke7"), ExtResource("22_qgqky"), ExtResource("23_isg7o"), ExtResource("24_7rihx"), ExtResource("25_7388j")]
 }
 
 [sub_resource type="Animation" id="Animation_kktaa"]
@@ -110,6 +161,8 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_o0hj4"]
 _data = {
 "RESET": SubResource("Animation_w4576"),
+"captain_airattack": SubResource("Animation_8focr"),
+"captain_attack": SubResource("Animation_jgf0a"),
 "captain_falling": SubResource("Animation_kktaa"),
 "captain_idle": SubResource("Animation_1wi6n"),
 "captain_jumping": SubResource("Animation_hiiu6"),
@@ -146,3 +199,9 @@ script = ExtResource("6_mx7yt")
 
 [node name="test_player_state_falling" type="Node" parent="state_smachine"]
 script = ExtResource("7_q0tld")
+
+[node name="test_player_state_attack" type="Node" parent="state_smachine"]
+script = ExtResource("25_5jxco")
+
+[node name="test_player_state_airattack" type="Node" parent="state_smachine"]
+script = ExtResource("32_wshl4")
