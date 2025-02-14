@@ -2,7 +2,9 @@ class_name TestPlayerStateAttack extends StateBase
 
 func start() -> void:
 	print("[+] attack")
+	
 	controlled_node.animation_player.play("captain_attack") # iniciar animación
+	controlled_node.reset_coyote_time() # restablecer coyote_time
 
 
 func end() -> void:
@@ -17,8 +19,10 @@ func on_physics_process(delta: float) -> void:
 
 
 func on_process(delta: float) -> void:
-	if controlled_node.velocity.y != 0:
-		state_machine.change_to("test_player_state_airattack") # cambiar a estado de atacar pero en el aire
+	_handle_coyote_time(delta)
+	
+	# if controlled_node.velocity.y != 0:
+	# 	state_machine.change_to("test_player_state_airattack") # cambiar a estado de atacar pero en el aire
 
 
 func on_input(event: InputEvent) -> void:
@@ -30,3 +34,14 @@ func on_input(event: InputEvent) -> void:
 			state_machine.change_to("test_player_state_running") # cambiar a estado de correr
 		else:
 			state_machine.change_to("test_player_state_idle") # cambiar a estado inactivo
+
+
+func _handle_coyote_time(delta: float) -> void:
+	if controlled_node.velocity.y != 0:
+		controlled_node.update_coyote_time(delta)
+
+		if controlled_node.coyote_time == 0:
+			state_machine.change_to("test_player_state_airattack") # cambiar a estado de atacar en el aire
+			
+	elif controlled_node.coyote_time != controlled_node.coyote_time_duration:
+		controlled_node.reset_coyote_time()
